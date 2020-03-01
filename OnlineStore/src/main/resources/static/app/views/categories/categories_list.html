@@ -1,0 +1,36 @@
+<div class="container">
+    <h1>Categories page</h1>
+    <div ng-show="user.roles == 'USER'" class="ng-hide">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Category</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="category in productsCategories">
+                <td><a href="#categories/category/{{category.id}}">{{category.name}}</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div ng-show="user.roles == 'ADMIN'" class="ng-hide">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Category</th>
+                <th scope="col">Edit</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="category in allCategories">
+                <td><a href="#categories/category/{{category.id}}">{{category.name}}</a></td>
+                <td ><a href="#categories/update/{{category.id}}"> update</a></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <a href="#categories/addCategory">Add category </a>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div>
+    <h1>Updating {{categoryForm.name}} category: </h1>
+    <form ng-submit="updateCategory()">
+        <p>ID: </p>
+        <input title="ID" type="text" name="categoryId" value="{{categoryForm.id}}" readonly>
+
+        <p>Category name: </p>
+        <input ng-model="categoryForm.name">
+        <p>Parent category: </p>
+        <select ng-model="parentCategory"
+                ng-options="category.name for category in allCategories">
+        </select>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Attribute </th>
+                <th scope="col">put </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="attribute in attributes">
+                <td>{{categoryForm.categAttrs[$index]}}</td>
+                <td><input ng-model="categoryForm.checked[$index]" input type="checkbox" checked></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <button type="submit">Edit category </button>
+    </form>
+</div>

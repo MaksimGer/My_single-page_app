@@ -1,0 +1,39 @@
+<div class="container" >
+    <h1>Product: {{product.name}}</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="row">Category: </th>
+            <td>{{product.category.name}}</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="param in productParams">
+            <th scope="row">{{productParams[$index].attribute.name}}</th>
+            <td>{{productParams[$index].value}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <div>
+        <a ng-show="user.roles == 'ADMIN'" class="ng-hide" ng-click="deleteProduct(product)">Delete </a>
+    </div>
+
+    <div ng-show="user.username" class="ng-hide">
+        <h3>Add comment: </h3>
+        <form ng-submit="addComment()">
+            <input type="text" ng-model="commentForm.text" />
+            <button type="submit">Add comment </button>
+        </form>
+    </div>
+
+    <div ng-show="comments != ''" class="container ng-hide">
+        <h3>Comments: </h3>
+        <div ng-repeat="comment in comments">
+            <p>{{$index + 1}}. {{comment.author.username}}: {{comment.text}}</p>
+        </div>
+    </div>
+
+    <div>
+        <a href="/#/categories/category/{{product.category.id}}">Go to "{{product.category.name}}" category: </a>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="container">
+    <h1>Products in "{{category.name}}" category</h1>
+
+    <div ng-show="productsInfo === ''" class="ng-hide">
+        <h3>There are no products in this category yet.</h3>
+    </div>
+
+    <table ng-show="productsInfo != ''" class="table table-striped ng-hide">
+        <thead>
+        <tr>
+            <th scope="col">Product</th>
+            <th scope="col">Price</th>
+            <th scope="col">Count</th>
+            <th scope="col">Buy</th>
+            <th ng-show="user.roles == 'ADMIN'" class="ng-hide" scope="col">Edit</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="productInfo in productsInfo">
+            <td><a href="#products/product/{{productInfo.product.id}}">{{productInfo.product.name}}</a></td>
+            <td>{{productInfo.price}}</td>
+            <td>{{productInfo.count}}</td>
+            <td><button data-ng-click="addToCart()" id="{{productInfo.product.id}}">Buy</button></td>
+            <td ng-show="user.roles == 'ADMIN'" class="ng-hide">
+                <a href="#products/update/{{productInfo.product.id}}">UPDATE</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="#categories">All categories</a>
+    <div ng-show="user.roles == 'ADMIN'" class="ng-hide">
+        <a ng-show="category.parentCategory.id === 6" class="ng-hide" href="#products/addProduct/{{category.id}}">
+            Add product
+        </a>
+        <a ng-click="deleteCategory(category)"> DELETE CATEGORY!</a>
+    </div>
+</div>

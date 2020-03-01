@@ -1,0 +1,22 @@
+<div class="container">
+    <h1>Add product to "{{category.name}}" category: </h1>
+
+    <form data-ng-submit="createProduct()">
+        <p>Product name: </p>
+        <input type="text" data-ng-model="productForm.name"/>
+
+        <div data-ng-repeat="attribute in attributes">
+                        <div>
+                            <p>{{attribute.name}}</p>
+                            <input type="text" data-ng-model="productForm.values[$index]" mask="999999999">
+                        </div>
+            <div data-ng-switch on="attribute.type">
+                <p>{{attribute.name}}</p>
+                <input data-ng-switch-when="1" type="text" data-ng-model="productForm.values[$index]" >
+                <input data-ng-switch-when="2" type="number" data-ng-model="productForm.values[$index]">
+            </div>
+        </div>
+
+        <button type="submit">Add product</button>
+    </form>
+</div>

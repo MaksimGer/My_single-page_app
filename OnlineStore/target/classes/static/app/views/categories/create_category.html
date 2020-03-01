@@ -1,0 +1,26 @@
+<div>
+    <h1>Crating a new category:</h1>
+    <form data-ng-submit="createCategory()">
+        <p>Category name: </p>
+        <td><input type="text" ng-model="categoryForm.name"/></td>
+        <p>Parent category: </p>
+        <select data-ng-model="parentCategory"
+                data-ng-options="category.name for category in allCategories">
+        </select>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Attribute </th>
+                <th scope="col">Put </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr data-ng-repeat="attribute in attributes">
+                <td>{{categoryForm.categAttrs[$index]}}</td>
+                <td><input data-ng-model="categoryForm.checked[$index]" input type="checkbox" checked></td>
+            </tr>
+            </tbody>
+        </table>
+        <button type="submit">Add category</button>
+    </form>
+</div>

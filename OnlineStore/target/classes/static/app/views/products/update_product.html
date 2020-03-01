@@ -1,0 +1,32 @@
+<div>
+    <form ng-submit="updateProduct()">
+        <h1>Update {{productForm.name}} product: </h1>
+
+        <table class="table table-striped">
+            <tr>
+                <td>ID</td>
+                <td><input ng-model="productForm.id" readonly></td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td><input ng-model="productForm.name"></td>
+            </tr>
+            </tbody>
+            <tbody ng-repeat="param in productParams">
+                            <tr>
+                                <th scope="row">{{param.attribute.name}}</th>
+                                 <th data-ng-switch on="param.attribute.type">
+                                     <input data-ng-switch-when="1" type="text" data-ng-model="productForm.values[$index]" >
+                                    <input data-ng-switch-when="2" type="number" data-ng-model="(number)productForm.values[$index]" >
+                                 </th>
+                            </tr>
+            <tr>
+                <th scope="row">{{param.attribute.name}}</th>
+                <td><input data-ng-model=productForm.values[$index]></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <button type="submit">Update product</button>
+    </form>
+</div>

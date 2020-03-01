@@ -1,0 +1,28 @@
+<div class="container">
+    <h1>This is a cart page</h1>
+
+    <p>Cart amount: {{cartPrice}}</p>
+
+    <p>Cart products: </p>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Product</th>
+            <th scope="col">Price</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Quantity in stock </th>
+            <th scope="col">Reduce </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="productInfo in productsInfo">
+            <td>{{productInfo.product.name}}</td>
+            <td>{{productInfo.price}}</td>
+            <td>{{productInfo.orderCount}}</td>
+            <td>{{productInfo.count}}</td>
+            <td><button data-ng-click="increaseProductCount()"> + </button> </td>
+            <td> <button data-ng-click="reduceProductCount()"> - </button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

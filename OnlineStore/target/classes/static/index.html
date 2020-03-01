@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OnlineStore Demo</title>
+
+    <!-- importing the bootstrap styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<style>
+    .margin-top-5 {
+        margin-top: 10px;
+    }
+    .panel-scroll {
+        height: 300px;
+        overflow-y: auto;
+    }
+</style>
+
+<body ng-app="onlineStoreApp">
+
+<!-- View for adding the navigation bar -->
+<div ui-view="nav"></div>
+
+<div class="container" style="margin-top: 50px;">
+    <!-- Main view for showing all views -->
+    <div ui-view="content"></div>
+</div>
+
+<!-- Including Scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ngMask/3.1.1/ngMask.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
+
+<!-- Including jquery and twitter bootstrap -->
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-price-format/2.2.0/jquery.priceformat.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="app/js/jquery.maskedinput.js"></script>
+
+<!-- Including the app.js and route.js  -->
+<script type="text/javascript" src="app/js/app.js"></script>
+<script type="text/javascript" src="app/js/route.js"></script>
+
+<!-- Including services -->
+<script type="text/javascript" src="app/js/services/auth-service.js"></script>
+
+<!-- Including controllers -->
+<script type="text/javascript" src="app/js/controllers/nav.js"></script>
+<script type="text/javascript" src="app/js/controllers/login.js"></script>
+<script type="text/javascript" src="app/js/controllers/users.js"></script>
+<script type="text/javascript" src="app/js/controllers/home.js"></script>
+<script type="text/javascript" src="app/js/controllers/page-not-found.js"></script>
+<script type="text/javascript" src="app/js/controllers/access-denied.js"></script>
+<script type="text/javascript" src="app/js/controllers/register.js"></script>
+<script type="text/javascript" src="app/js/controllers/attribute.js"></script>
+<script type="text/javascript" src="app/js/controllers/category.js"></script>
+<script type="text/javascript" src="app/js/controllers/product.js"></script>
+<script type="text/javascript" src="app/js/controllers/cart.js"></script>
+</body>
+</html>

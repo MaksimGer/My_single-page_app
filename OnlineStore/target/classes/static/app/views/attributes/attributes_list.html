@@ -1,0 +1,63 @@
+<div class="container">
+    <h1>Attributes page</h1>
+
+    <div>
+        <form data-ng-submit="submitAttribute()" > <!--controller.AttributeController-->
+            <p>{{message}}</p>
+            <table border="0">
+                <tr>
+                    <td>ID: </td>
+                    <td>{{attributeForm.id}}</td>
+                </tr>
+                <tr>
+                    <td>Name: </td>
+                    <td><input type="text" data-ng-model="attributeForm.name"  /></td>
+                </tr>
+                <tr>
+                    <td>Type: </td>
+                    <td>
+                        <select data-ng-model="attributeForm.type"
+                                data-ng-options="type.name for type in attributeTypes">
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input class="form-select-button" type="submit" value="{{btnText}}" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <a class="create-button" data-ng-click="createAttribute()">Create Attribute</a>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-ng-repeat="attribute in attributes">
+            <td>{{attribute.id}}</td>
+            <td>{{attribute.name}}</td>
+            <td> <a data-ng-show="attributes[$index].id !== 1 &&
+                                attributes[$index].id !== 2 &&
+                                attributes[$index].id !== 3 &&
+                                attributes[$index].id !== 4"
+                    data-ng-click="editAttribute(attribute)" class="ng-hide edit-button"> Update</a></td>
+            <td><a data-ng-show="attributes[$index].id !== 1 &&
+                                attributes[$index].id !== 2 &&
+                                attributes[$index].id !== 3 &&
+                                attributes[$index].id !== 4"
+                   data-ng-click="deleteAttribute(attribute)" class="ng-hide delete-button"> DELETE</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="container">
+        <a href="#"> На главную</a>
+    </div>
+</div>
